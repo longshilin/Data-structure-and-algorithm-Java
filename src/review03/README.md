@@ -2,7 +2,7 @@
 
 ![](https://i.imgur.com/8nscOWZ.png)
 
-[FindNumber.java](/FindNumber.java)
+[FindNumber.java](/src/review02/FindNumber.java)
 
 ![](https://i.imgur.com/fxNhcTf.png)
 
