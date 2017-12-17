@@ -5,6 +5,9 @@ class DATA{
 	int age;
 }
 
+/*
+ * 顺序栈结构
+ */
 class StackType{				
 	static final int MAXLEN = 50;
 	DATA[] data = new DATA[MAXLEN+1];								// 构建栈结构

@@ -5,6 +5,10 @@ class DATA{
 	int age;
 }
 
+/*
+ * 顺序结构队列
+ * sequential queue
+ */
 class SQType{
 	static final int QUEUELEN = 15;
 	DATA[] data = new DATA[QUEUELEN];							// 队列顺序结构数组
