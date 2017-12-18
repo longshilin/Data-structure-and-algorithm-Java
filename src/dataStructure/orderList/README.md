@@ -51,7 +51,7 @@ int SLInsert(SLType SL, int n, DATA data){			// 插入结点到顺序表中间�
 		return 0;
 	}
 	
-	for(int i=SL.ListLen;i>=n;i--){		// 将插入位置n后续的结点都向后移动一位
+	for(int i=SL.ListLen;i>=n;i--){			// 将插入位置n后续的结点都向后移动一位
 		SL.ListData[i+1]=SL.ListData[i];
 	}
 	SL.ListData[n]=data;			// 插入结点
@@ -62,7 +62,7 @@ int SLInsert(SLType SL, int n, DATA data){			// 插入结点到顺序表中间�
 ## 追加结点
 追加结点并不是一个基本的数据结构运算，其可以看作插入结点的一种特殊形式，相当于在顺序表的末尾新增一个数据结点。由于追加结点的特殊性，其代码实现比插入结点要简单，因为不必进行大量数据的移动。
 ```java
-int SLAdd(SLType SL, DATA data){			// 增加元素到顺序表尾部
+int SLAdd(SLType SL, DATA data){		// 增加元素到顺序表尾部
 	if(SL.ListLen>=MAXLEN){			// 顺序表已满
 		System.out.println("顺序表已满，不能再添加结点!\n");
 		return 0;
@@ -74,14 +74,14 @@ int SLAdd(SLType SL, DATA data){			// 增加元素到顺序表尾部
 ## 删除结点
 删除结点即删除线性表L中的第i个结点，使得其后的所有结点编号依次减1。删除一个结点之后，线性表L的长度将变为n-1。删除结点和插入结点类似，都需要进行大量数据的移动。
 ```java
-int SLDelete(SLType SL, int n){			// 按位删除顺序表的结点
+int SLDelete(SLType SL, int n){		// 按位删除顺序表的结点
 	
-	if(n<1 || n>SL.ListLen+1){			// 删除结点序号不正确
+	if(n<1 || n>SL.ListLen+1){		// 删除结点序号不正确
 		System.out.println("删除结点序号错误，不能删除结点!\n");
 		return 0;
 	}
 	
-	for(int i=n;i<SL.ListLen;i++){			// 将插入位置n后续的结点都向前移动一位
+	for(int i=n;i<SL.ListLen;i++){		// 将插入位置n后续的结点都向前移动一位
 		SL.ListData[i]=SL.ListData[i+1];
 	}
 	SL.ListLen--;

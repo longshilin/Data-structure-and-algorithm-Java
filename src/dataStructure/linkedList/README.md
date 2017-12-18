@@ -16,7 +16,7 @@
 准备在 链表操作中需要用到的变量及类。
 ```java
 class DATA{
-	String key;				// 结点的关键字
+	String key;			// 结点的关键字
 	String name;
 	int age;
 }
@@ -44,18 +44,18 @@ CLType CLAddEnd(CLType head, DATA nodeData){
 		System.out.println("申请内存失败!\n");
 		return null;
 	}else{
-		node.nodeData = nodeData;				// 在新申请的结点中保存数据
-		node.nextNode = null;					// 设置结点引用为空，即为表尾
-		if(head == null){						// 当head为空时，加入的新结点即为头引用
+		node.nodeData = nodeData;		// 在新申请的结点中保存数据
+		node.nextNode = null;		// 设置结点引用为空，即为表尾
+		if(head == null){		// 当head为空时，加入的新结点即为头引用
 			head = node;
 			return head;
 		}
 		htemp = head;
-		while(htemp.nextNode != null){			// 查找链表的末尾
+		while(htemp.nextNode != null){		// 查找链表的末尾
 			htemp = htemp.nextNode;
 		}
-		htemp.nextNode = node;					// 在链表的末尾插入该结点
-		return head;							// 返回指代整个链表的头引用
+		htemp.nextNode = node;		// 在链表的末尾插入该结点
+		return head;		// 返回指代整个链表的头引用
 	}
 }
 ```
@@ -73,9 +73,9 @@ CLType CLAddFirst(CLType head, DATA nodeData){
 		System.out.println("申请内存失败!\n");
 		return null;
 	}else{
-		node.nodeData = nodeData;				// 保存数据
-		node.nextNode = head;					// 新加入的头结点的nextNode指向头引用所指的结点
-		head = node;							// 头引用指向新节点
+		node.nodeData = nodeData;		// 保存数据
+		node.nextNode = head;		// 新加入的头结点的nextNode指向头引用所指的结点
+		head = node;		// 头引用指向新节点
 		return head;
 	}
 }
@@ -86,7 +86,7 @@ CLType CLAddFirst(CLType head, DATA nodeData){
 CLType CLFindNode(CLType head, String key){
 	CLType htemp;
 	htemp = head;
-	while(htemp!=null){							// 循环遍历，寻找关键字匹配的结点
+	while(htemp!=null){			// 循环遍历，寻找关键字匹配的结点
 		if(htemp.nodeData.key.compareTo(key)==0){	
 			return htemp;
 		}
@@ -137,8 +137,8 @@ int CLDeleteNode(CLType head, String key){		// 删除关键字结点
 			tempnode.nextNode = htemp.nextNode;		// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
 			return 1;
 		}
-		tempnode = htemp;							// 保存当前结点
-		htemp = htemp.nextNode;						// 指向下一个结点
+		tempnode = htemp;			// 保存当前结点
+		htemp = htemp.nextNode;			// 指向下一个结点
 	}
 	return 0;
 }

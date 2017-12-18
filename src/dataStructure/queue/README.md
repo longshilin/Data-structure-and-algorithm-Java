@@ -13,8 +13,8 @@ class DATA{
 class SQType{
 	static final int QUEUELEN = 15;
 	DATA[] data = new DATA[QUEUELEN];		// 队列顺序结构数组
-	int head;								// 队头
-	int tail;								// 队尾
+	int head;		// 队头
+	int tail;		// 队尾
 }
 ```
 在上述代码中，定义了队列结构的最大长度QUEUELEN，队列结构数据元素的类DATA及队列结构的类SQType。在类SQType中，data为数据元素，head为队头的序号，tail为队尾的序号。当head=0时表示队列为空，当tail=QUEUELEN时表示队列已满。
@@ -24,7 +24,7 @@ class SQType{
 1. 按符号常量QUEUELEN指定的大小申请一片内存空间，用来保存队列中的数据。
 2. 设置head=0和tail=0，表示一个空栈。
 ```java
-SQType SQTypeInit(){				// 队列初始化
+SQType SQTypeInit(){	// 队列初始化
 	SQType q;
 	if((q=new SQType())!=null){		// 申请内存
 		q.head = 0;											
@@ -40,7 +40,7 @@ SQType SQTypeInit(){				// 队列初始化
 ## 判断空队列
 判断空队列即判断一个队列结构是否为空。如果是空队列，则表示该队列结构中没有数据。此时可以进行入队列，但不可以进行出队列。
 ```java
-int SQTypeIsEmpty(SQType q){		// 判断队列空
+int SQTypeIsEmpty(SQType q){	// 判断队列空
 	int temp = 0;
 	if(q.head == q.tail)
 		temp = 1;
@@ -51,7 +51,7 @@ int SQTypeIsEmpty(SQType q){		// 判断队列空
 ## 判断满队列
 判断满队列即判断一个队列结构是否为满。如果是满队列，则表示该队列结构中没有多余的空间来保存额外数据。此时不可以进行入队列操作，但是可以进行出队列操作。
 ```java
-int SQTypeIsFull(SQType q){			// 判断队列满
+int SQTypeIsFull(SQType q){		// 判断队列满
 	int temp = 0;
 	if(q.tail==QUEUELEN){
 		temp=1;
@@ -61,14 +61,14 @@ int SQTypeIsFull(SQType q){			// 判断队列满
 ```
 ## 清空队列
 ```java
-void SQTypeClear(SQType q){			// 清空队列
+void SQTypeClear(SQType q){		// 清空队列
 	q.head = 0;
 	q.tail = 0;
 }
 ```
 ## 释放空间
 ```java
-void SQTypeFree(SQType q){			// 释放队列
+void SQTypeFree(SQType q){		// 释放队列
 	if(q != null){
 		q = null;
 	}
@@ -85,7 +85,7 @@ int InSQType(SQType q, DATA data){		// 入队列
 		System.out.println("队列已满! 操作失败!\n");
 		return 0;
 	}
-	q.data[q.tail++] = data;			// 顺序入队列，并将队尾指针+1
+	q.data[q.tail++] = data;		// 顺序入队列，并将队尾指针+1
 	return 1;
 }
 ```
@@ -97,12 +97,12 @@ int InSQType(SQType q, DATA data){		// 入队列
 2. 从队列首部取出队头元素（实际是返回队头元素的引用）。
 3. 设修改队头head的序号，使其指向后一个元素。
 ```java
-DATA OutSQType(SQType q){				// 出队列
+DATA OutSQType(SQType q){		// 出队列
 	if(q.head==q.tail){
 		System.out.println("队列已空! 操作失败!\n");
 		return null;
 	}else{
-		return q.data[q.head++];		// 顺序出队列，并将队首指针+1
+		return q.data[q.head++];	// 顺序出队列，并将队首指针+1
 	}
 }
 ```
@@ -111,7 +111,7 @@ DATA OutSQType(SQType q){				// 出队列
 ## 读结点数据
 读操作其实是读取队列头的数据。需要注意的是，读结点数据的操作和出队列操作不同。读结点数据的操作仅显示队列顶结点数据的内容，而出队列操作则将队列顶数据弹出，该数据不再存在。
 ```java
-DATA PeekSQType(SQType q){			//读结点数据
+DATA PeekSQType(SQType q){		//读结点数据
 	if(SQTypeIsEmpty(q)==1){
 		System.out.println("\n空队列");
 		return null;
@@ -124,7 +124,7 @@ DATA PeekSQType(SQType q){			//读结点数据
 ## 计算队列长度
 计算队列长度即统计该队列中数据结点的个数。计算队列长度的方法比较简单，用队尾序号减去队头序号即可。
 ```java
-int SQTypeLen(SQType q){			// 计算队列长度
+int SQTypeLen(SQType q){		// 计算队列长度
 	int temp;
 	temp=q.tail - q.head;
 	return temp;
