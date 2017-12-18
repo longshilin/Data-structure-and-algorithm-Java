@@ -96,11 +96,12 @@ CLType CLFindNode(CLType head, String key){
 }
 ```
 在上述代码中，输入参数head为链表的头引用，输入参数key是用来在链表中进行查找结点的关键字。程序中，首先从链表头引用开始，对结点进行逐个比较，直到查找到。找到关键字相同的结点后，返回该结点的引用，方便调用程序处理。
+
 ## 插入结点
 插入结点就是在链表中间部分的指定位置增加一个结点。插入结点的操作步骤如下：
 1. 分配内存空间，保存新增的结点。
-- 找到要插入的逻辑位置，也就是那两个结点之间。
-- 使新增节点指向原插入位置所指向的结点，并修改插入位置结点的引用，使其指向新增结点。
+2. 找到要插入的逻辑位置，也就是那两个结点之间。
+3. 使新增节点指向原插入位置所指向的结点，并修改插入位置结点的引用，使其指向新增结点。
 ```java
 CLType CLInsertNode(CLType head, String findKey, DATA nodeData){	// 插入关键字结点
 	CLType node, nodetemp;
@@ -119,11 +120,12 @@ CLType CLInsertNode(CLType head, String findKey, DATA nodeData){	// 插入关键
 	return head;
 }
 ```
+
 ## 删除结点
 删除结点就是将链表中的某个结点数据删除。删除结点的操作步骤如下：
 1. 查找需要删除的结点。
-- 使前一结点指向当前结点的下一结点。
-- 删除结点。
+2. 使前一结点指向当前结点的下一结点。
+3. 删除结点。
 ```java
 int CLDeleteNode(CLType head, String key){		// 删除关键字结点
 	CLType htemp,tempnode;
@@ -134,7 +136,7 @@ int CLDeleteNode(CLType head, String key){		// 删除关键字结点
 	tempnode = head;
 	while(htemp != null){
 		if(htemp.nodeData.key.compareTo(key)==0){ 	// 遍历查找
-			tempnode.nextNode = htemp.nextNode;		// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
+			tempnode.nextNode = htemp.nextNode;	// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
 			return 1;
 		}
 		tempnode = htemp;			// 保存当前结点
@@ -144,6 +146,7 @@ int CLDeleteNode(CLType head, String key){		// 删除关键字结点
 }
 ```
 注意，此时被删除结点仍然保存在内存中，接着执行赋值null操作，用来释放被删除节点所占用的内存空间。
+
 ## 计算链表长度
 统计链表结构中结点的数量，由于链表结构在物理上不是连续存储的，因此，需要遍历整个链表来对结点数量进行累加。
 ```java
