@@ -16,7 +16,7 @@
 准备在 链表操作中需要用到的变量及类。
 ```java
 class DATA{
-	String key;	// 结点的关键字
+	String key;				// 结点的关键字
 	String name;
 	int age;
 }
@@ -44,7 +44,7 @@ CLType CLAddEnd(CLType head, DATA nodeData){
 		System.out.println("申请内存失败!\n");
 		return null;
 	}else{
-		node.nodeData = nodeData;			// 在新申请的结点中保存数据
+		node.nodeData = nodeData;				// 在新申请的结点中保存数据
 		node.nextNode = null;					// 设置结点引用为空，即为表尾
 		if(head == null){						// 当head为空时，加入的新结点即为头引用
 			head = node;
@@ -73,7 +73,7 @@ CLType CLAddFirst(CLType head, DATA nodeData){
 		System.out.println("申请内存失败!\n");
 		return null;
 	}else{
-		node.nodeData = nodeData;			// 保存数据
+		node.nodeData = nodeData;				// 保存数据
 		node.nextNode = head;					// 新加入的头结点的nextNode指向头引用所指的结点
 		head = node;							// 头引用指向新节点
 		return head;
@@ -86,7 +86,7 @@ CLType CLAddFirst(CLType head, DATA nodeData){
 CLType CLFindNode(CLType head, String key){
 	CLType htemp;
 	htemp = head;
-	while(htemp!=null){				// 循环遍历，寻找关键字匹配的结点
+	while(htemp!=null){							// 循环遍历，寻找关键字匹配的结点
 		if(htemp.nodeData.key.compareTo(key)==0){	
 			return htemp;
 		}
@@ -133,12 +133,12 @@ int CLDeleteNode(CLType head, String key){		// 删除关键字结点
 	htemp = head;
 	tempnode = head;
 	while(htemp != null){
-		if(htemp.nodeData.key.compareTo(key)==0){ // 遍历查找
-			tempnode.nextNode = htemp.nextNode;	// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
+		if(htemp.nodeData.key.compareTo(key)==0){ 	// 遍历查找
+			tempnode.nextNode = htemp.nextNode;		// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
 			return 1;
 		}
 		tempnode = htemp;							// 保存当前结点
-		htemp = htemp.nextNode;					// 指向下一个结点
+		htemp = htemp.nextNode;						// 指向下一个结点
 	}
 	return 0;
 }
@@ -162,7 +162,7 @@ int CLLength(CLType head){			//返回结点总数
 
 ## 显示所有结点
 ```java
-void CLAllNode(CLType head){			// 遍历链表输出所有数据
+void CLAllNode(CLType head){		// 遍历链表输出所有数据
 	CLType htemp;
 	htemp = head;
 	System.out.printf("\n当前链表共有%d个结点。链表所有数据如下：\n",CLLength(head));

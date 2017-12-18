@@ -6,7 +6,7 @@
 ## 准备数据
 准备在顺序表操作中需要用到的变量及数据结构等。
 ```java
-class DATA{						// 定义数据元素结构
+class DATA{							// 定义数据元素结构
 	String key;						// 结点的关键字
 	String name;
 	int age;
@@ -19,7 +19,7 @@ class DATA{						// 定义数据元素结构
 class SLType{
 	static final int MAXLEN=100;
 	DATA[] ListData = new DATA[MAXLEN+1];	// 保存顺序表的结构数组
-	int ListLen;				// 顺序表已存结点的数量
+	int ListLen;							// 顺序表已存结点的数量
 }
 ```
 ## 初始化顺序表
@@ -39,14 +39,14 @@ int SLLength(SLType SL){			// 返回顺序表的元素数量
 ## 插入结点
 插入结点就是在线性表L的第i个位置插入一个新的结点，使得其后的结点编号依次加1。
 ```java
-int SLInsert(SLType SL, int n, DATA data){		// 插入结点到顺序表中间的位置
+int SLInsert(SLType SL, int n, DATA data){	// 插入结点到顺序表中间的位置
 
-	if(SL.ListLen>=MAXLEN){			// 顺序表已满
+	if(SL.ListLen>=MAXLEN){				// 顺序表已满
 		System.out.println("顺序表已满，不能插入结点!\n");
 		return 0;
 	}
 	
-	if(n<1 || n>SL.ListLen-1){		// 校验插入位置的合法性
+	if(n<1 || n>SL.ListLen-1){			// 校验插入位置的合法性
 		System.out.println("插入元素序号错误，不能插入元素!\n");
 		return 0;
 	}
@@ -54,10 +54,10 @@ int SLInsert(SLType SL, int n, DATA data){		// 插入结点到顺序表中间的
 	for(int i=SL.ListLen;i>=n;i--){		// 将插入位置n后续的结点都向后移动一位
 		SL.ListData[i+1]=SL.ListData[i];
 	}
-	SL.ListData[n]=data;			// 插入结点
-	SL.ListLen++;					// 顺序表节点数量加1
-	return 1;						//成功插入，返回1
-}
+	SL.ListData[n]=data;					// 插入结点
+	SL.ListLen++;							// 顺序表节点数量加1
+	return 1;								//成功插入，返回1
+}		
 ```
 ## 追加结点
 追加结点并不是一个基本的数据结构运算，其可以看作插入结点的一种特殊形式，相当于在顺序表的末尾新增一个数据结点。由于追加结点的特殊性，其代码实现比插入结点要简单，因为不必进行大量数据的移动。
@@ -74,7 +74,7 @@ int SLAdd(SLType SL, DATA data){	// 增加元素到顺序表尾部
 ## 删除结点
 删除结点即删除线性表L中的第i个结点，使得其后的所有结点编号依次减1。删除一个结点之后，线性表L的长度将变为n-1。删除结点和插入结点类似，都需要进行大量数据的移动。
 ```java
-int SLDelete(SLType SL, int n){		// 按位删除顺序表的结点
+int SLDelete(SLType SL, int n){			// 按位删除顺序表的结点
 	
 	if(n<1 || n>SL.ListLen+1){		// 删除结点序号不正确
 		System.out.println("删除结点序号错误，不能删除结点!\n");
@@ -94,7 +94,7 @@ int SLDelete(SLType SL, int n){		// 按位删除顺序表的结点
 1）按照序号查找结点
 按照序号查找结点是顺序表查找结点最常用的方法，这是因为顺序表的存储本身就是一个数组。
 ```java
-DATA SLFindByNum(SLType SL, int n){	// 根据序号返回数据元素
+DATA SLFindByNum(SLType SL, int n){		// 根据序号返回数据元素
 	
 	if(n<1 || n>SL.ListLen+1){
 		System.out.println("结点序号错误，不能返回结点!\n");
@@ -106,8 +106,8 @@ DATA SLFindByNum(SLType SL, int n){	// 根据序号返回数据元素
 2）按照关键字查找结点
 关键字可以是数据元素结构中的任意一项
 ```java
-int SLFindByKey(SLType SL, String key){		// 按关键字查询结点
-	for (int i = 1; i <= SL.ListLen; i++) {	// 搜寻整个顺序表，返回和key匹配的结点
+int SLFindByKey(SLType SL, String key){			// 按关键字查询结点
+	for (int i = 1; i <= SL.ListLen; i++) {		// 搜寻整个顺序表，返回和key匹配的结点
 		if(SL.ListData[i].key.compareTo(key)==0){
 			return i;
 		}
@@ -118,7 +118,7 @@ int SLFindByKey(SLType SL, String key){		// 按关键字查询结点
 ## 显示所有结点
 打印线性表中的所有数据元素
 ```java
-int SLALL(SLType SL){				// 显示顺序表中的所有结点
+int SLALL(SLType SL){		// 显示顺序表中的所有结点
 	
 	for(int i=1; i<=SL.ListLen; i++){
 		System.out.printf("(%s,%s,%d)\n", SL.ListData[i].key, SL.ListData[i].name, SL.ListData[i].age);

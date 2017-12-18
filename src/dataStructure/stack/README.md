@@ -12,8 +12,8 @@ class DATA{
  */
 class StackType{				
 	static final int MAXLEN = 50;
-	DATA[] data = new DATA[MAXLEN+1];		// 构建栈结构
-	int top;				// 栈顶
+	DATA[] data = new DATA[MAXLEN+1];	// 构建栈结构
+	int top;							// 栈顶
 }
 ```
 在上述代码中，定义了栈结构的最大长度MAXLEN，栈结构数据元素的类DATA及栈结构的类StackType。在类StackType中，data为数据元素，top为栈顶的序号。当top=0时表示栈为空，当top=SIZE时表示栈满。
@@ -24,11 +24,11 @@ Java语言中数组都是从下标0开始的。在这里，为了讲述和理解
 1. 按符号常量SIZE指定的大小申请一片内存空间，用来保存栈中的数据。
 - 设置栈顶引用的值为0，表示一个空栈。
 ```java
-StackType STInit(){				// 栈的初始化
+StackType STInit(){						// 栈的初始化
 	StackType p;
-	if((p=new StackType())!=null){			/ 申请栈内存
-		p.top = 0;					// 设置栈顶为0
-		return p;					// 返回指向栈的引用
+	if((p=new StackType())!=null){		// 申请栈内存
+		p.top = 0;						// 设置栈顶为0
+		return p;						// 返回指向栈的引用
 	}
 	return null;
 }
@@ -36,28 +36,28 @@ StackType STInit(){				// 栈的初始化
 ## 判断空栈
 判断空栈即判断一个栈结构是否为空。如果是空栈，则表示该结构中没有数据。此时可以进行入栈操作，但不可以进行出栈操作。
 ```java
-boolean STIsEmpty(StackType s){		// 判断栈是否为空
+boolean STIsEmpty(StackType s){			// 判断栈是否为空
 	return s.top==0;
 }
 ```
 ## 判断满栈
 如果是满栈，则表示该结构中没有多余的空间来保存额外数据。此时不可以进行入栈操作，但是可以进行出栈操作。
 ```java
-boolean STIsFull(StackType s){		// 判断栈是否已满
+boolean STIsFull(StackType s){			// 判断栈是否已满
 	return s.top==MAXLEN;
 }
 ```
 ## 清空栈
 清空栈即清除栈中的所有数据，在程序中简单地将栈顶引用top设置为0，表示执行清空栈操作。
 ```java
-void STClear(StackType s){			// 清空栈
+void STClear(StackType s){				// 清空栈
 	s.top = 0;
 }
 ```
 ## 释放空间
 释放空间即释放栈结构所占用的内存单元，程序中，直接赋值null操作释放所分配的内存。一般在不需要使用栈结构的时候使用，特别是程序结束时。
 ```java
-void STFree(StackType s){			// 释放栈所占用的空间
+void STFree(StackType s){				// 释放栈所占用的空间
 	if(s != null){
 		s = null;
 	}
@@ -74,7 +74,7 @@ int PushST(StackType s, DATA data){		// 入栈
 		System.out.println("栈溢出!\n");
 		return 0;
 	}
-	s.data[++s.top] = data;			// 元素入栈，top指针+1
+	s.data[++s.top] = data;				// 元素入栈，top指针+1
 	return 1;
 }
 ```
@@ -89,7 +89,7 @@ DATA PopST(StackType s){				// 出栈
 		System.out.println("栈为空!\n");
 		return null;
 	}
-	return s.data[s.top--];			// 元素出栈，top指针-1
+	return s.data[s.top--];				// 元素出栈，top指针-1
 }
 ```
 ## 读结点数据
@@ -97,7 +97,7 @@ DATA PopST(StackType s){				// 出栈
 
 需要注意的是，读结点数据的操作和出栈的操作不同。读结点数据的操作仅显示栈顶结点数据的内容，而出栈操作则是将栈顶数据弹出，该数据不再存在了。
 ```java
-DATA PeekST(StackType s){			// 读栈顶数据
+DATA PeekST(StackType s){				// 读栈顶数据
 	if(s.top==0){
 		System.out.println("栈为空! 出栈失败!\n");
 		System.exit(0);
