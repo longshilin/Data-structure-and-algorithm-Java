@@ -128,12 +128,3 @@ public class Queue {
 		st.SQTypeFree(stack);													// 释放队列占用的空间
 	}
 }
-
-
-
-
-
-
-
-
-

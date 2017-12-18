@@ -110,17 +110,3 @@ public class Stack {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
