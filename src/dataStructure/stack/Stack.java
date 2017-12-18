@@ -12,54 +12,54 @@ class DATA{
  */
 class StackType{				
 	static final int MAXLEN = 50;
-	DATA[] data = new DATA[MAXLEN+1];								// 构建栈结构
-	int top;														// 栈顶
+	DATA[] data = new DATA[MAXLEN+1];		// 构建栈结构
+	int top;						// 栈顶
 	
-	StackType STInit(){												// 栈的初始化
+	StackType STInit(){				// 栈的初始化
 		StackType p;
-		if((p=new StackType())!=null){								// 申请栈内存
-			p.top = 0;												// 设置栈顶为0
-			return p;												// 返回指向栈的引用
+		if((p=new StackType())!=null){		// 申请栈内存
+			p.top = 0;				// 设置栈顶为0
+			return p;				// 返回指向栈的引用
 		}
 		return null;
 	}
 	
-	boolean STIsEmpty(StackType s){									// 判断栈是否为空
+	boolean STIsEmpty(StackType s){	// 判断栈是否为空
 		return s.top==0;
 	}
 	
-	boolean STIsFull(StackType s){									// 判断栈是否已满
+	boolean STIsFull(StackType s){	// 判断栈是否已满
 		return s.top==MAXLEN;
 	}
 	
-	void STClear(StackType s){										// 清空栈
+	void STClear(StackType s){		// 清空栈
 		s.top = 0;
 	}
 	
-	void STFree(StackType s){										// 释放栈所占用的空间
+	void STFree(StackType s){		// 释放栈所占用的空间
 		if(s != null){
 			s = null;
 		}
 	}
 	
-	int PushST(StackType s, DATA data){								// 入栈
+	int PushST(StackType s, DATA data){		// 入栈
 		if(s.top+1 > MAXLEN){
 			System.out.println("栈溢出!\n");
 			return 0;
 		}
-		s.data[++s.top] = data;										// 元素入栈，top指针+1
+		s.data[++s.top] = data;		// 元素入栈，top指针+1
 		return 1;
 	}
 	
-	DATA PopST(StackType s){										// 出栈
+	DATA PopST(StackType s){		// 出栈
 		if(s.top==0){
 			System.out.println("栈为空!\n");
 			return null;
 		}
-		return s.data[s.top--];										// 元素出栈，top指针-1
+		return s.data[s.top--];		// 元素出栈，top指针-1
 	}
 	
-	DATA PeekST(StackType s){										// 读栈顶数据
+	DATA PeekST(StackType s){		// 读栈顶数据
 		if(s.top==0){
 			System.out.println("栈为空! 出栈失败!\n");
 			System.exit(0);
@@ -80,7 +80,7 @@ public class Stack {
 		StackType st = new StackType();
 		DATA data1 = new DATA();
 		
-		StackType stack = st.STInit();								// 初始化栈
+		StackType stack = st.STInit();			// 初始化栈
 		Scanner input = new Scanner(System.in);
 		System.out.println("入栈操作：");
 		System.out.println("输入姓名 年龄进行入栈操作,输入0 结束入栈操作：");
@@ -106,7 +106,7 @@ public class Stack {
 			temp=input.next();
 		}
 		System.out.println("测试结束!");
-		st.STFree(st);															// 释放栈所用的空间		
+		st.STFree(st);						// 释放栈所用的空间		
 	}
 	
 }
