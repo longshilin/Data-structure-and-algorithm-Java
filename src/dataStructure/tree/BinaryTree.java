@@ -1,5 +1,7 @@
 package dataStructure.tree;
 
+import java.util.Scanner;
+
 /*
  * 链式二叉树
  * chain binary tree
@@ -12,37 +14,73 @@ class CBTType{
 
 class ChainBinaryTree{
 	static final int MAXLEN = 20;
-		
-	CBTType CreateNode(String data){											// 创建二叉树结点
+	static Scanner input = new Scanner(System.in);
+	CBTType InitTree(){											// 创建二叉树结点
 		CBTType node;
-		if((node = new CBTType())==null){
-			System.out.println("申请内存失败!");
-			System.exit(0);
-		}else{
-			node.data = data;
-			node.left = null;
-			node.right = null;
-			return node;
+		if((node = new CBTType())!=null){						// 分配内存
+			System.out.println("请先输入一个根结点数据：");
+			node.data=input.next();
+			node.left=null;
+			node.right=null;
+			if(node!=null){
+				return node;
+			}else{
+				return null;
+			}
 		}
 		return null;
 	}
 	
-	int AddTreeNode(CBTType rootNode, String data){								// 插入叶子结点
-		CBTType node;
-		if(rootNode == null){
-			System.out.println("不存在父结点! 插入失败!");
-			return 0;
-		}else{
-			node = CreateNode(data);
-			if(rootNode.left == null){
-				rootNode.left = node;
-			}else if(rootNode.right == null){
-				rootNode.right = node;
-			}else{
-				System.out.println("该父结点左右子数已满! 插入失败!");
+	void AddTreeNode(CBTType treeNode){								// 添加结点
+		CBTType pnode,parent;
+		String data;
+		int menusel;
+		if((pnode=new CBTType())!=null){							// 分配内存
+			System.out.printf("输入需新增的二叉树结点数据：");
+			pnode.data=input.next();								// 创建一个新输入的结点
+			pnode.left=null;
+			pnode.right=null;
+			
+			System.out.printf("输入该结点的父结点数据：");
+			data=input.next();
+			
+			parent=TreeFindNode(treeNode,data);						// 查找指定数据的结点
+			if(parent==null){
+				System.out.println("未找到该父结点!");
+				pnode=null;
+				return;
 			}
+			
+			System.out.println("1.添加该结点到左子树\t2.添加该结点到右子树");
+			do{
+				menusel = input.nextInt();
+				if(menusel==1 || menusel==2){
+					if(parent==null){
+						System.out.println("不存在父结点，请先设置父结点!");
+					}else{
+						switch (menusel) {
+						case 1:
+							if(parent.left!=null){
+								System.out.println("左子树不为空!");
+							}else{
+								parent.left=pnode;
+							}
+							break;
+						case 2:
+							if(parent.right!=null){
+								System.out.println("右子树结点不为空!");
+							}else{
+								parent.right=pnode;
+							}
+							break;
+						default:
+							System.out.println("无效参数!");
+							break;
+						}
+					}
+				}
+			}while(menusel!=1 && menusel!=2);
 		}
-		return 1;
 	}
 	
 	CBTType TreeFindNode(CBTType treeNode, String data){						// 查找结点
@@ -119,15 +157,13 @@ class ChainBinaryTree{
 			head=(head+1)%MAXLEN;
 			node = stack[head];													// 队首元素出队列
 			TreeNodeData(node);
-			while(head!=tail){
-				if(node.left!=null){											// 遍历下一层时 队首元素的左子树入队列
-					tail=(tail+1)%MAXLEN;
-					stack[tail]=node.left;
-				}
-				if(node.right!=null){											// 遍历下一层时 队首元素的右子树入队列
-					tail=(tail+1)%MAXLEN;
-					stack[tail]=node.right;
-				}
+			if(node.left!=null){											// 遍历下一层时 队首元素的左子树入队列
+				tail=(tail+1)%MAXLEN;
+				stack[tail]=node.left;
+			}
+			if(node.right!=null){											// 遍历下一层时 队首元素的右子树入队列
+				tail=(tail+1)%MAXLEN;
+				stack[tail]=node.right;
 			}
 		}
 	}
@@ -164,7 +200,67 @@ class ChainBinaryTree{
  *
  */
 public class BinaryTree {
-
+	static Scanner input = new Scanner(System.in);
+	public static void main(String[] args){
+		CBTType root = null;														// root 为指向二叉树根节点的引用
+		int menusel=0;
+		ChainBinaryTree cbt = new ChainBinaryTree();
+		root = cbt.InitTree();
+		do{
+			System.out.println("请选择菜单选择添加二叉树的结点：");
+			System.out.printf("0.退出\t");
+			System.out.println("1.添加二叉树的子结点");
+			menusel = input.nextInt();
+			switch (menusel) {
+			case 1:
+				cbt.AddTreeNode(root);
+				break;
+			case 0:
+				break;
+			default:
+				break;
+			}
+		}while(menusel!=0);
+		
+		// 遍历
+		do{
+			System.out.println("请选择菜单遍历二叉树，输入0表示退出：");
+			System.out.printf("1.先序遍历DLR\t");
+			System.out.printf("2.中序遍历LDR\t");
+			System.out.printf("3.后序遍历LRD\t");
+			System.out.println("4.按层遍历");
+			menusel=input.nextInt();
+			switch (menusel) {
+			case 0:
+				break;
+			case 1:
+				System.out.printf("\n先序遍历DLR的结果：");
+				cbt.DLRTree(root);
+				System.out.println();
+				break;
+			case 2:
+				System.out.printf("\n中序遍历LDR的结果：");
+				cbt.LDRTree(root);
+				System.out.println();
+				break;
+			case 3:
+				System.out.printf("\n后序遍历LRD的结果：");
+				cbt.LRDTree(root);
+				System.out.println();
+				break;
+			case 4:
+				System.out.printf("\n按层遍历的结果：");
+				cbt.LevelTree(root);
+				System.out.println();
+				break;
+			default:
+				break;
+			}
+		}while(menusel!=0);
+		System.out.println("\n 二叉树深度为：" + cbt.TreeDepth(root));							// 二叉树深度
+		cbt.ClearTree(root);
+		root = null;
+	}
 }
 
 

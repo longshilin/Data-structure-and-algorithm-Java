@@ -1,5 +1,7 @@
 package dataStructure.queue;
 
+import java.util.Scanner;
+
 class DATA{
 	String name;
 	int age;
@@ -61,14 +63,13 @@ class SQType{
 		return 1;
 	}
 	
-	DATA OutSQType(SQType q, DATA data){						// 出队列
-		if(q.head==0){
+	DATA OutSQType(SQType q){						// 出队列
+		if(q.head==q.tail){
 			System.out.println("队列已空! 操作失败!\n");
-			System.exit(0);
+			return null;
 		}else{
 			return q.data[q.head++];							// 顺序出队列，并将队首指针+1
 		}
-		return null;
 	}
 	
 	int SQTypeLen(SQType q){									// 计算队列长度
@@ -85,4 +86,45 @@ class SQType{
  */
 public class Queue {
 
+	public static void main(String[] args) {
+		SQType st = new SQType();
+		DATA data1;
+		Scanner input = new Scanner(System.in);
+		SQType stack = st.SQTypeInit();
+		System.out.println("入队列操作:");
+		System.out.println("输入姓名 年龄进行入队列操作,输入0 结束入队操作:");
+		do{
+			DATA data = new DATA();
+			data.name=input.next();
+			data.age=input.nextInt();
+			if(data.name.equals("0")){
+				break;
+			}else{
+				st.InSQType(stack, data);
+			}
+		}while(true);
+		
+		String temp = "1";
+		System.out.println("出队列操作：按任意非0键进行出队列操作：");
+		temp = input.next();
+		while(!temp.equals("0")){
+			data1 = st.OutSQType(stack);
+			if(data1 == null){
+				break;
+			}
+			System.out.println("出队列的数据是"+data1.name+","+data1.age);
+			temp = input.next();
+		}
+		System.out.println("测试结束!");
+		st.SQTypeFree(stack);													// 释放队列占用的空间
+	}
 }
+
+
+
+
+
+
+
+
+
