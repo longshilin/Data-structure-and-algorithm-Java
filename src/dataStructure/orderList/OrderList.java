@@ -1,4 +1,4 @@
-package dataStructure.orderTable;
+package dataStructure.orderList;
 
 import java.util.Scanner;
 
@@ -104,7 +104,7 @@ class SLType{
  * @author elon@elon33.com
  *
  */
-public class LinearList {
+public class OrderList {
 	
 	public static void main(String[] args) {
 		

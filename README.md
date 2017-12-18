@@ -1,3 +1,19 @@
+# 数据结构与算法
+## 线性表 :ox:
+顺序表是一种典型的线性结构，是最简单、最常用的数据结构。
+在计算机中线性表可以采用两种方式来保存，一种是顺序存储结构，另一种是链式存储结构.
+
+- [顺序表结构](/src/dataStructure/orderList/README.md)
+- [链表结构](/src/dataStructure/linkedList/README.md)
+
+## 栈结构
+
+## 队列结构
+
+## 数结构
+
+## 图结构
+
 # 数据结构与算法 面试题(Java版) :four_leaf_clover:
 
 - [单例模式的六种实现](src/review02)
