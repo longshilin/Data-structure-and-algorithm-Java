@@ -114,7 +114,7 @@ public class OrderList {
 		String key;
 		System.out.println("顺序表操作演示!");
 		
-		SL.SLInit(SL);												// 初始化顺序表
+		SL.SLInit(SL);			// 初始化顺序表
 		System.out.println("初始化顺序表完成!");
 	
 		Scanner input = new Scanner(System.in);
