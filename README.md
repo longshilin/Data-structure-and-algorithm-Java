@@ -77,6 +77,5 @@ CBTType root = null;			// 定义二叉树根结点引用
 # 数据结构与算法 面试题(Java版) :sparkles:
 
 - [单例模式的六种实现](./src/review02#top)
-- [二位数组中的查找](./src/review03#top)
+- [二位数组中的查找](https://github.com/yilong0722/Data-structure-and-algorithm-Java/tree/master/src/review03#top)
 - [字符串替换空格](./src/review04#top) 
-- [顺序队列结构](./src/dataStructure/queue#top)
