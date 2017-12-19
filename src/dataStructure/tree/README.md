@@ -232,4 +232,4 @@ void LRDTree(CBTType treeNode){				// 后续遍历
 ```
 ## 数结构操作实例
 [BinaryTree.java](./BinaryTree.java)
-<div align="center">[*****回到首页*****](/offer-java)
+<center>[*****回到首页*****](/offer-java)</center>
