@@ -130,4 +130,4 @@ int SLALL(SLType SL){			// 显示顺序表中的所有结点
 完成实例源码
 [OrderList.java](./OrderList.java)
 
-[*****回到首页*****](/offer-java)
+[*****回到首页*****](https://github.com/yilong0722/Data-structure-and-algorithm-Java/#top)

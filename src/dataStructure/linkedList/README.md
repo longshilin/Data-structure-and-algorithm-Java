@@ -179,4 +179,4 @@ void CLAllNode(CLType head){		// 遍历链表输出所有数据
 完整实例源码：
 [LinkedList.java](./LinkedList.java)
 
-[*****回到首页*****](/offer-java)
+[*****回到首页*****](https://github.com/yilong0722/Data-structure-and-algorithm-Java/#top)

@@ -135,4 +135,4 @@ int SQTypeLen(SQType q){		// 计算队列长度
 队列实例操作源码
 [Queue.java](./Queue.java)
 
-[*****回到首页*****](/offer-java)
+[*****回到首页*****](https://github.com/yilong0722/Data-structure-and-algorithm-Java/#top)

@@ -234,4 +234,4 @@ void LRDTree(CBTType treeNode){				// 后续遍历
 [BinaryTree.java](./BinaryTree.java)
 
 
-[*****回到首页*****](/offer-java)
+[*****回到首页*****](https://github.com/yilong0722/Data-structure-and-algorithm-Java/#top)
