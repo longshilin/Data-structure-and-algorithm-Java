@@ -154,9 +154,12 @@ class ChainBinaryTree{
 			stack[tail]=treeNode;				// 将二叉树的根结点入队列
 		}
 		while(head!=tail){						// 当队列不为空时，循环入队和出队遍历 打印结点	
+			// 出队列
 			head=(head+1)%MAXLEN;
 			node = stack[head];					// 队首元素出队列
+			// 打印结点
 			TreeNodeData(node);
+			// 入队列
 			if(node.left!=null){				// 遍历下一层时 队首元素的左子树入队列
 				tail=(tail+1)%MAXLEN;
 				stack[tail]=node.left;

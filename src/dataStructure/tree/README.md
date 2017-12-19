@@ -173,6 +173,7 @@ void TreeNodeData(CBTType p){				// 显示结点数据
 可以通过按层遍历方式遍历树结构，也可以通过使用递归来简化遍历算法。
 ### 按层遍历算法
 由于二叉树代表的是一种层次结构，因此，首先按层来遍历整个二叉树。对于二叉树的按层遍历，一般不能使用递归算法来编写代码，而是使用一个循环队列来进行处理。首先将第1层（根结点）进入队列，再将第1层的左右子树（第2层）进入队列....,循环处理，可以逐层遍历。
+![](https://i.imgur.com/WZ9m4eD.png)
 ```java
 void LevelTree(CBTType treeNode){			// 按层遍历
 	CBTType node;
@@ -183,9 +184,12 @@ void LevelTree(CBTType treeNode){			// 按层遍历
 		stack[tail]=treeNode;				// 将二叉树的根结点入队列
 	}
 	while(head!=tail){						// 当队列不为空时，循环入队和出队遍历 打印结点	
+		// 出队列
 		head=(head+1)%MAXLEN;
 		node = stack[head];					// 队首元素出队列
+		// 打印结点
 		TreeNodeData(node);
+		// 入队列
 		if(node.left!=null){				// 遍历下一层时 队首元素的左子树入队列
 			tail=(tail+1)%MAXLEN;
 			stack[tail]=node.left;
