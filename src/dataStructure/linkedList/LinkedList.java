@@ -80,18 +80,15 @@ class CLType{
 	}
 	
 	int CLDeleteNode(CLType head, String key){		// 删除关键字结点
-		CLType htemp,tempnode;
-		if(head == null){
-			return 0;
-		}
+		CLType htemp,node;		//循环遍历时，htemp保存当前结点指针，node保存当前结点的前一结点
 		htemp = head;
-		tempnode = head;
+		node = head;
 		while(htemp != null){
 			if(htemp.nodeData.key.compareTo(key)==0){ // 遍历查找
-				tempnode.nextNode = htemp.nextNode;	// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
+				node.nextNode = htemp.nextNode;	// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
 				return 1;
 			}
-			tempnode = htemp;						// 保存当前结点
+			node = htemp;						// 保存当前结点
 			htemp = htemp.nextNode;					// 指向下一个结点
 		}
 		return 0;
