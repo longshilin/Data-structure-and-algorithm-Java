@@ -109,4 +109,4 @@ DATA PeekST(StackType s){		// 读栈顶数据
 操作实例源码
 [Stack.java](./Stack.java)
 
-[*****回到首页*****](/offer-java)
+[*****回到首页*****](https://github.com/yilong0722/Data-structure-and-algorithm-Java/#top)
