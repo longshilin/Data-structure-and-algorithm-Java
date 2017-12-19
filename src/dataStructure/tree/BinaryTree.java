@@ -6,18 +6,18 @@ import java.util.Scanner;
  * 链式二叉树
  * chain binary tree
  */
-class CBTType{
-	String data;
-	CBTType left;
-	CBTType right;
+class CBTType{					// 树结点的类型结构
+	String data;				// 结点保存的数据
+	CBTType left;				// 指向的左子树
+	CBTType right;				// 指向的右子树
 }
 
 class ChainBinaryTree{
 	static final int MAXLEN = 20;
 	static Scanner input = new Scanner(System.in);
-	CBTType InitTree(){											// 创建二叉树结点
+	CBTType InitTree(){				// 创建二叉树结点
 		CBTType node;
-		if((node = new CBTType())!=null){						// 分配内存
+		if((node = new CBTType())!=null){		// 分配内存
 			System.out.println("请先输入一个根结点数据：");
 			node.data=input.next();
 			node.left=null;
@@ -31,20 +31,20 @@ class ChainBinaryTree{
 		return null;
 	}
 	
-	void AddTreeNode(CBTType treeNode){								// 添加结点
+	void AddTreeNode(CBTType treeNode){			// 添加结点
 		CBTType pnode,parent;
 		String data;
 		int menusel;
-		if((pnode=new CBTType())!=null){							// 分配内存
+		if((pnode=new CBTType())!=null){		// 分配内存
 			System.out.printf("输入需新增的二叉树结点数据：");
-			pnode.data=input.next();								// 创建一个新输入的结点
+			pnode.data=input.next();			// 创建一个新输入的结点
 			pnode.left=null;
 			pnode.right=null;
 			
 			System.out.printf("输入该结点的父结点数据：");
 			data=input.next();
 			
-			parent=TreeFindNode(treeNode,data);						// 查找指定数据的结点
+			parent=TreeFindNode(treeNode,data);			// 查找指定数据的结点
 			if(parent==null){
 				System.out.println("未找到该父结点!");
 				pnode=null;
@@ -83,14 +83,14 @@ class ChainBinaryTree{
 		}
 	}
 	
-	CBTType TreeFindNode(CBTType treeNode, String data){						// 查找结点
+	CBTType TreeFindNode(CBTType treeNode, String data){	// 查找结点
 		CBTType node;
 		if(treeNode == null){
 			return null;
 		}else{
 			if(treeNode.data.equals(data)){
 				return treeNode;
-			}else if((node = TreeFindNode(treeNode.left,data))!=null){			// 分别向左右子数递归查找
+			}else if((node = TreeFindNode(treeNode.left,data))!=null){		// 分别向左右子数递归查找
 				return node;
 			}else if((node = TreeFindNode(treeNode.right,data))!=null){
 				return node;
@@ -100,21 +100,21 @@ class ChainBinaryTree{
 		}
 	}
 	
-	CBTType TreeLeftNode(CBTType treeNode){										// 获取左子树
+	CBTType TreeLeftNode(CBTType treeNode){		// 获取左子树
 		if(treeNode==null){
 			return null;
 		}
 		return treeNode.left;
 	}
 	
-	CBTType TreeRightNode(CBTType treeNode){									// 获取右子树
+	CBTType TreeRightNode(CBTType treeNode){	// 获取右子树
 		if(treeNode==null){
 			return null;
 		}
 		return treeNode.right;
 	}
 	
-	int TreeIsEmpty(CBTType treeNode){											// 判断空树
+	int TreeIsEmpty(CBTType treeNode){			// 判断空树
 		if(treeNode == null){
 			return 1;
 		}else{
@@ -122,22 +122,22 @@ class ChainBinaryTree{
 		}
 	}
 	
-	int TreeDepth(CBTType treeNode){											// 计算二叉树深度
-		if(treeNode==null){														// 递归临界条件
-			return 0;															// 对于空树 深度为0
+	int TreeDepth(CBTType treeNode){			// 计算二叉树深度
+		if(treeNode==null){						// 递归临界条件
+			return 0;							// 对于空树 深度为0
 		}
 		return Math.max(TreeDepth(treeNode.left), TreeDepth(treeNode.right))+1;	// 递归调用左右子树 计算深度，并回溯深度+1
 	}
 	
-	void ClearTree(CBTType treeNode){											// 清空二叉树
+	void ClearTree(CBTType treeNode){			// 清空二叉树
 		if(treeNode!=null){
-			ClearTree(treeNode.left);											//递归调用 清空左右子树，最后清空父结点
+			ClearTree(treeNode.left);			//递归调用 清空左右子树，最后清空父结点
 			ClearTree(treeNode.right);
 			treeNode = null;
 		}
 	}
 	
-	void TreeNodeData(CBTType p){												// 显示结点数据
+	void TreeNodeData(CBTType p){				// 显示结点数据
 		if(p==null){
 			System.out.println("无效结点!");
 		}else{
@@ -145,48 +145,48 @@ class ChainBinaryTree{
 		}
 	}
 	
-	void LevelTree(CBTType treeNode){											// 按层遍历
+	void LevelTree(CBTType treeNode){			// 按层遍历
 		CBTType node;
-		CBTType[] stack = new CBTType[MAXLEN];									// 定义一个顺序队列,保存各结点对象
+		CBTType[] stack = new CBTType[MAXLEN];	// 定义一个顺序队列,保存各结点对象
 		int head=0,tail=0;
 		if(treeNode!=null){
-			tail = (tail+1)%MAXLEN;												// 利用取余 实现循环队列
-			stack[tail]=treeNode;												// 将二叉树的根结点入队列
+			tail = (tail+1)%MAXLEN;				// 利用取余 实现循环队列
+			stack[tail]=treeNode;				// 将二叉树的根结点入队列
 		}
-		while(head!=tail){														// 当队列不为空时，循环入队和出队遍历 打印结点	
+		while(head!=tail){						// 当队列不为空时，循环入队和出队遍历 打印结点	
 			head=(head+1)%MAXLEN;
-			node = stack[head];													// 队首元素出队列
+			node = stack[head];					// 队首元素出队列
 			TreeNodeData(node);
-			if(node.left!=null){											// 遍历下一层时 队首元素的左子树入队列
+			if(node.left!=null){				// 遍历下一层时 队首元素的左子树入队列
 				tail=(tail+1)%MAXLEN;
 				stack[tail]=node.left;
 			}
-			if(node.right!=null){											// 遍历下一层时 队首元素的右子树入队列
+			if(node.right!=null){				// 遍历下一层时 队首元素的右子树入队列
 				tail=(tail+1)%MAXLEN;
 				stack[tail]=node.right;
 			}
 		}
 	}
 		
-	void DLRTree(CBTType treeNode){												// 先序遍历
+	void DLRTree(CBTType treeNode){				// 先序遍历
 		if(treeNode!=null){
-			TreeNodeData(treeNode);												// 先打印结点数据，再遍历左右子树
+			TreeNodeData(treeNode);				// 先打印结点数据，再遍历左右子树
 			DLRTree(treeNode.left);
 			DLRTree(treeNode.right);
 		}
 	}		
 	
-	void LDRTree(CBTType treeNode){												// 中序遍历
+	void LDRTree(CBTType treeNode){				// 中序遍历
 		if(treeNode!=null){
-			LDRTree(treeNode.left);												// 先遍历左子树 打印结点数据 再遍历右子树
+			LDRTree(treeNode.left);				// 先遍历左子树 打印结点数据 再遍历右子树
 			TreeNodeData(treeNode);
 			LDRTree(treeNode.right);
 		}
 	}
 	
-	void LRDTree(CBTType treeNode){												// 后续遍历
+	void LRDTree(CBTType treeNode){				// 后续遍历
 		if(treeNode!=null){
-			LRDTree(treeNode.left);												// 先遍历左右子树，再打印结点
+			LRDTree(treeNode.left);				// 先遍历左右子树，再打印结点
 			LRDTree(treeNode.right);
 			TreeNodeData(treeNode);
 		}
@@ -202,7 +202,7 @@ class ChainBinaryTree{
 public class BinaryTree {
 	static Scanner input = new Scanner(System.in);
 	public static void main(String[] args){
-		CBTType root = null;														// root 为指向二叉树根节点的引用
+		CBTType root = null;					// root 为指向二叉树根节点的引用
 		int menusel=0;
 		ChainBinaryTree cbt = new ChainBinaryTree();
 		root = cbt.InitTree();
@@ -257,7 +257,7 @@ public class BinaryTree {
 				break;
 			}
 		}while(menusel!=0);
-		System.out.println("\n 二叉树深度为：" + cbt.TreeDepth(root));							// 二叉树深度
+		System.out.println("\n 二叉树深度为：" + cbt.TreeDepth(root));		// 二叉树深度
 		cbt.ClearTree(root);
 		root = null;
 	}
