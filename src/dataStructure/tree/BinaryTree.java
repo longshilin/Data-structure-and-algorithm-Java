@@ -122,9 +122,9 @@ class ChainBinaryTree{
 		}
 	}
 	
-	int TreeDepth(CBTType treeNode){			// 计算二叉树深度
-		if(treeNode==null){						// 递归临界条件
-			return 0;							// 对于空树 深度为0
+	int TreeDepth(CBTType treeNode){		// 计算二叉树深度
+		if(treeNode==null){			// 递归临界条件
+			return 0;			// 对于空树 深度为0
 		}
 		return Math.max(TreeDepth(treeNode.left), TreeDepth(treeNode.right))+1;	// 递归调用左右子树 计算深度，并回溯深度+1
 	}

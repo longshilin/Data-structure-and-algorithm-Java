@@ -141,8 +141,8 @@ int TreeIsEmpty(CBTType treeNode){			// 判断空树
 计算二叉树深度即计算二叉树中结点的最大层数，这里往往需要采用递归算法来实现。
 ```java
 int TreeDepth(CBTType treeNode){			// 计算二叉树深度
-	if(treeNode==null){						// 递归临界条件
-		return 0;							// 对于空树 深度为0
+	if(treeNode==null){				// 递归临界条件
+		return 0;				// 对于空树 深度为0
 	}
 	return Math.max(TreeDepth(treeNode.left), TreeDepth(treeNode.right))+1;	// 递归调用左右子树 计算深度，并回溯深度+1
 }
@@ -232,3 +232,4 @@ void LRDTree(CBTType treeNode){				// 后续遍历
 ```
 ## 数结构操作实例
 [BinaryTree.java](./BinaryTree.java)
+<div align="center">[*****回到首页*****](/offer-java)
