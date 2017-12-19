@@ -1,4 +1,4 @@
-# 顺序栈结构 :cherries:
+# <a id="top"></a>顺序栈结构 :cherries:
 
 ## 准备数据
 ```java

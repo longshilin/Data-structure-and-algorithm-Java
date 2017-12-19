@@ -1,4 +1,4 @@
-# 树结构 :strawberry:
+# <a id="top"></a>树结构 :strawberry:
 ## 准备数据
 定义二叉树结构的类CBTType。结点的具体数据保持在一个字符串data中，而引用left用来指向左子树结点，引用right用来指向右子树结点。
 ```java

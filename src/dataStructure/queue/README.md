@@ -1,4 +1,4 @@
-# 队列结构 :tangerine:
+# <a id="top"></a>队列结构 :tangerine:
 ## 准备数据
 ```java
 class DATA{
