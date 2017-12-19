@@ -76,7 +76,7 @@ class CLType{
 			node.nextNode = nodetemp.nextNode;		// 新插入的节点的nextNode指向关键字结点的下一结点
 			nodetemp.nextNode = node;				// 设置关键结点指向新插入结点
 		}
-		return head;
+		return head; 
 	}
 	
 	int CLDeleteNode(CLType head, String key){		// 删除关键字结点
@@ -85,11 +85,11 @@ class CLType{
 		node = head;
 		while(htemp != null){
 			if(htemp.nodeData.key.compareTo(key)==0){ // 遍历查找
-				node.nextNode = htemp.nextNode;	// 当前结点的引用指向下一个结点的引用，以此删除htemp结点
+				node.nextNode = htemp.nextNode; // 上一结点的引用指向当前结点的下一结点，删除当前结点
 				return 1;
 			}
 			node = htemp;						// 保存当前结点
-			htemp = htemp.nextNode;					// 指向下一个结点
+			htemp = htemp.nextNode;					// 当前结点更新指向下一个结点
 		}
 		return 0;
 	}
