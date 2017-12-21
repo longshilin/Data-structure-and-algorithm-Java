@@ -78,9 +78,9 @@ CBTType root = null;			// 定义二叉树根结点引用
 
 # 排序算法总结 :elephant:
 
-![](https://i.imgur.com/1OW23bg.png)
+![](https://i.imgur.com/UsDuUM6.png)
 
-[点击详见](./src/sortingAlgorithm/README.md)
+[点击详见](./src/sortingAlgorithm/#top)
 # 数据结构与算法 面试题(Java版) :sparkles:
 
 - [单例模式的六种实现](./src/review02#top)

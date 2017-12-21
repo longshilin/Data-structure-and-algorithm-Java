@@ -30,12 +30,12 @@ public class insert {
 		for(i=1; i<n; i++){
 			t=a[i];
 			j=i-1;
-			while(j>=0 && t<a[j]){	// 后移每个比t大的元素
+			while(j>=0 && t<a[j]){		// 后移每个比t大的元素
 				a[j+1]=a[j];
 				j--;
 				ex++;
 			}
-			a[j+1]=t;
+			a[j+1]=t;		// 将腾出来的那个位置插入新元素
 			count++;
 			System.out.print("第"+count+"趟排序结果：");
 			for (int k = 0; k < a.length; k++) {
